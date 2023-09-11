@@ -1,0 +1,15 @@
+body {
+    background-color: #e4e4e4 !important;
+}
+
+.card {
+    box-shadow: rgba(100, 100, 111, 0.2) 4px 4px 10px 0px;
+}
+
+.nav-link {
+    color: #1b1b1b !important;
+}
+
+.card-container {
+    gap: 12px;
+}
