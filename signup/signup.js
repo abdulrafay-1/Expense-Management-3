@@ -120,9 +120,29 @@ function login() {
 }
 
 function logout() {
-    location.replace("../index.html");
-    localStorage.removeItem("loggedUser")
+
+
+    Swal.fire({
+        title: 'Logout',
+        text: "Are you sure you want to logout?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: 'Logout Successfull',
+                icon: "success"
+            }
+            ).then(function () {
+                location.replace("../index.html");
+                localStorage.removeItem("loggedUser")
+            })
+        }
+    })
+
+
 }
-
-
 
