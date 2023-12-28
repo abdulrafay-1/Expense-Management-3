@@ -12,6 +12,15 @@ var filterUserTodoItems = todoItems.filter(function (item) {
     return item.userId == userId;
 })
 
+var todoItems = {
+    userId,
+    todoID: ++uniqueTodoId,
+    title,
+    description,
+    priority,
+    dateCreated
+}
+
 
 function greetUserOnDashboard() {
     document.getElementById("showname").innerHTML = "Hello " + loggedUser.username.toUpperCase() + " !";
@@ -39,7 +48,7 @@ function createItemRow(filterUserTodoItemslength, title, description, priority, 
         "<td>" + description + "</td>" +
         "<td>" + priority + "</td>" +
         "<td>" + dateCreated + "</td>" +
-        "<td>" + "<button class='btn btn-danger' id='delete-todo' onclick='deleteTodo(" + filterUserTodoItems[i].todoID + ")' >Delete</button>" + "</td>"
+        "<td>" + "<button class='btn btn-danger' id='delete-todo' onclick='deleteTodo()' >Delete</button>" + "</td>"
 
 
 }
@@ -102,14 +111,9 @@ function addTodoItem() {
         })
     }
     else {
-        todoItems.push({
-            userId,
-            todoID: ++uniqueTodoId,
-            title,
-            description,
-            priority,
-            dateCreated
-        })
+
+        todoItems.push(todoItems);
+
         var filterUserTodoItems = todoItems.filter(function (item) {
             return item.userId == userId
         })
@@ -142,7 +146,7 @@ if (filterUserTodoItems.length > 0) {
             "<td>" + filterUserTodoItems[i].description + "</td>" +
             "<td>" + filterUserTodoItems[i].priority + "</td>" +
             "<td>" + filterUserTodoItems[i].dateCreated + "</td>" +
-            "<td >" + "<button class='btn btn-danger' id='delete-todo' onclick='deleteTodo(" + filterUserTodoItems[i].todoID + ")' >Delete</button>" + "</td>"
+            "<td >" + "<button class='btn btn-danger' id='delete-todo' onclick='deleteTodo()' >Delete</button>" + "</td>"
 
     }
 }
